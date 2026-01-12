@@ -615,47 +615,6 @@ body {
   box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
 }
 
-/* Navbar Widget */
-.navbar-widget {
-  min-width: 400px;
-  padding: 0;
-  background: #1e293b;
-  border-radius: var(--border-radius-sm);
-}
-
-.navbar-widget-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 24px;
-}
-
-.navbar-logo {
-  font-size: 18px;
-  font-weight: 700;
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.navbar-links {
-  display: flex;
-  gap: 24px;
-}
-
-.navbar-link {
-  color: #94a3b8;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-  transition: var(--transition-fast);
-}
-
-.navbar-link:hover {
-  color: #f8fafc;
-}
-
 /* Toast Notifications */
 .toast {
   position: fixed;

@@ -58,12 +58,6 @@ const widgetTypes = [
         description: 'Full-width resizable block',
         icon: '🔲',
     },
-    {
-        type: 'navbar',
-        name: 'Navbar',
-        description: 'Navigation Bar',
-        icon: '🧭',
-    },
 ];
 
 const DraggableWidget = ({ type, name, description, icon }) => {

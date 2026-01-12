@@ -9,7 +9,6 @@
     transition: all 0.3s ease;
     align-items: center;
     position: relative;
-    padding-bottom: 100px;
 }
 
 .canvas.drag-over {

@@ -1,127 +1,98 @@
-# Website Builder - Low-Code Platform
+# ✨ Website Builder Pro
 
-A professional website builder with drag-and-drop functionality, Auth0 SSO, and cloud-based layout persistence.
+A professional, high-performance low-code platform for creating modern, responsive web layouts with a refined drag-and-drop experience.
 
-## 🚀 Features
+---
 
-- **Drag-and-Drop Interface** - Intuitive widget placement using @dnd-kit
-- **Auth0 SSO** - Secure authentication with Auth0 (supports Google, GitHub, etc.)
-- **Cloud Persistence** - Layouts saved to MongoDB
-- **Modern UI** - Premium dark theme with glassmorphism effects
-- **Widget Library** - Text, Image, Button, and Navbar widgets
+## 🚀 Core Features
 
-## 📁 Project Structure
+- **Intuitive Drag & Drop** – Precise widget placement, resizing, and repositioning using `@dnd-kit`.
+- **Zero-Gap Containers** – Optimized layouts that utilize 100% of available space with smart padding management.
+- **Enterprise-Grade Auth** – Seamless SSO integration via **Auth0** for secure, multi-provider access.
+- **Cloud Persistence** – Automatic layout synchronization with **MongoDB** for reliable design storage.
+- **Premium Aesthetics** – Stunning dark-mode interface with glassmorphism, smooth transitions, and modern typography.
+- **Responsive Architecture** – Full support for sections and containers that adapt to various screen sizes.
 
-```
+---
+
+## 📂 Project Structure
+
+```text
 saasant/
-├── client/          # React Frontend (Vite)
-│   └── src/
-│       ├── components/
-│       ├── contexts/
-│       ├── hooks/
-│       └── services/
+├── client/              # React + Vite Frontend
+│   ├── src/
+│   │   ├── components/  # Modular widget and UI library
+│   │   ├── services/    # API and Auth integration
+│   │   └── hooks/       # Custom layout and state management logic
 │
-├── server/          # Node.js Backend (Express)
-│   ├── config/
-│   ├── middleware/
-│   ├── models/
-│   └── routes/
-│
-└── README.md
+├── server/              # Express + Node.js Backend
+│   ├── models/          # MongoDB schemas (Mongoose)
+│   ├── routes/          # API endpoints for layout persistence
+│   └── middleware/      # Auth0 JWT verification
 ```
 
-## 🛠️ Setup Instructions
+---
+
+## 🛠️ Setup & Installation
 
 ### Prerequisites
+- **Node.js**: v18.0.0 or higher
+- **MongoDB**: Local instance or MongoDB Atlas cluster
+- **Auth0**: An active tenant with a Single Page Application (SPA) and an API configured
 
-- Node.js 18+
-- MongoDB (local or Atlas)
-- Auth0 account
-
-### 1. Configure Auth0
-
-1. Go to [auth0.com](https://auth0.com) and create an account
-2. Create a new **Single Page Application**
-3. Note your **Domain** and **Client ID**
-4. Go to **Applications → APIs** and create an API:
-   - Name: `Website Builder API`
-   - Identifier: `https://website-builder-api`
-5. Configure allowed URLs in your application settings:
-   - **Allowed Callback URLs**: `http://localhost:5173`
-   - **Allowed Logout URLs**: `http://localhost:5173`
-   - **Allowed Web Origins**: `http://localhost:5173`
-
-### 2. Backend Setup
+### 1. Backend Configuration
+Navigate to the `server` directory, install dependencies, and configure environment variables:
 
 ```bash
 cd server
 npm install
-
-# Create .env file
 cp .env.example .env
-
-# Edit .env with your values:
-# AUTH0_DOMAIN=your-tenant.auth0.com
-# AUTH0_AUDIENCE=https://website-builder-api
-# MONGODB_URI=mongodb://localhost:27017/website-builder
-
-npm run dev
 ```
 
-### 3. Frontend Setup
+Update `.env` with your secure credentials:
+- `MONGODB_URI`: Your MongoDB connection string
+- `AUTH0_DOMAIN`: Your Auth0 tenant domain
+- `AUTH0_AUDIENCE`: Your Auth0 API Identifier
+
+### 2. Frontend Configuration
+Navigate to the `client` directory and install dependencies:
 
 ```bash
 cd client
 npm install
+```
 
-# Create .env file with Auth0 credentials:
-echo "VITE_AUTH0_DOMAIN=your-tenant.auth0.com" > .env
-echo "VITE_AUTH0_CLIENT_ID=your-client-id" >> .env
-echo "VITE_AUTH0_AUDIENCE=https://website-builder-api" >> .env
+Create a `.env` file in the `client` directory:
+```env
+VITE_AUTH0_DOMAIN=your-tenant.auth0.com
+VITE_AUTH0_CLIENT_ID=your-client-id
+VITE_AUTH0_AUDIENCE=https://your-api-identifier
+```
 
+### 3. Execution
+Start both the server and client in development mode:
+
+```bash
+# Server terminal
+npm run dev
+
+# Client terminal
 npm run dev
 ```
 
-### 4. Access the Application
+The application will be accessible at `http://localhost:5173` (or the next available port).
 
-Open http://localhost:5173 in your browser.
+---
 
-## 🔧 Environment Variables
+## 🧹 Optimization & Performance
 
-### Server (.env)
-| Variable | Description |
-|----------|-------------|
-| `MONGODB_URI` | MongoDB connection string |
-| `AUTH0_DOMAIN` | Auth0 tenant domain (e.g., `your-tenant.auth0.com`) |
-| `AUTH0_AUDIENCE` | Auth0 API identifier |
-| `PORT` | Server port (default: 5000) |
-| `CLIENT_URL` | Frontend URL for CORS |
+We maintain a high standard of code quality. Recent optimizations include:
+- **Dependency Thinning**: Removed 5+ unused packages to reduce security surface and bundle size.
+- **Widget Refactoring**: Consolidated widget logic into `DroppedWidget.jsx`, removing redundant specific implementation files.
+- **Layout Logic**: Eliminated unnecessary paddings and bottom-gaps in containers and the main canvas for maximum layout flexibility.
 
-### Client (.env)
-| Variable | Description |
-|----------|-------------|
-| `VITE_AUTH0_DOMAIN` | Auth0 tenant domain |
-| `VITE_AUTH0_CLIENT_ID` | Auth0 application client ID |
-| `VITE_AUTH0_AUDIENCE` | Auth0 API identifier |
-| `VITE_API_URL` | Backend API URL (optional) |
+---
 
-## 📖 Usage
+## 🛡️ License
 
-1. **Sign In** - Click "Continue with Auth0" to authenticate
-2. **Add Widgets** - Drag widgets from the sidebar to the canvas
-3. **Edit Widgets** - Click on text to edit, double-click buttons to rename
-4. **Reposition** - Drag widgets around the canvas
-5. **Delete** - Hover over a widget and click the X button
-6. **Save** - Click "Save Layout" to persist your design
-
-## 🔐 API Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/api/health` | Health check |
-| `POST` | `/api/layout/save-layout` | Save user layout (requires Auth0 token) |
-| `GET` | `/api/layout/get-layout` | Get user layout (requires Auth0 token) |
-
-## 📄 License
-
-MIT License
+Built with ❤️ for pro developers and designers. Distributed under the **MIT License**.

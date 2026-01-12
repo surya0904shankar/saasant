@@ -7,12 +7,12 @@ const ContainerWidget = ({ id, props, children, onUpdate, previewMode }) => {
     });
 
     const style = {
-        minHeight: props.minHeight || '100px',
+        minHeight: props.minHeight || '40px',
         width: '100%',
         border: previewMode ? 'none' : (isOver ? '2px solid var(--primary)' : '1px dashed var(--border-color)'),
         borderRadius: props.borderRadius || '8px',
         background: props.background || 'rgba(255, 255, 255, 0.02)',
-        padding: props.padding || '16px',
+        padding: props.padding || '0px',
         position: 'relative',
         transition: 'all 0.2s ease',
         overflow: 'hidden',

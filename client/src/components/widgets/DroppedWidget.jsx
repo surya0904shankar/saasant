@@ -1,10 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ListWidget from './ListWidget';
 import LinkWidget from './LinkWidget';
-
-import ImageWidget from './ImageWidget';
-import ButtonWidget from './ButtonWidget';
-import NavbarWidget from './NavbarWidget';
 import ContainerWidget from './ContainerWidget';
 import SectionWidget from './SectionWidget';
 import {
@@ -15,19 +11,8 @@ import {
     MenuItem,
     FormControl,
     InputLabel,
-    FormControlLabel,
-    Card,
-    CardContent,
-    Alert,
-    Switch,
-    Slider,
-    Accordion,
-    AccordionSummary,
-    AccordionDetails,
-    Avatar,
     Box
 } from '@mui/material';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const DroppedWidget = ({ widget, onUpdate, onRemove, onMove, onSelect, selectedWidgetId, previewMode, allWidgets }) => {
     const [isDragging, setIsDragging] = useState(false);

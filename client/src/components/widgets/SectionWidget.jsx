@@ -10,7 +10,7 @@ const SectionWidget = ({ id, props, children, previewMode }) => {
         minHeight: `${props.height || 300}px`,
         width: '100%',
         background: props.background || 'rgba(255, 255, 255, 0.02)',
-        padding: props.padding || '60px 20px',
+        padding: props.padding || '0px',
         position: 'relative',
         transition: 'all 0.3s ease',
         display: 'flex',

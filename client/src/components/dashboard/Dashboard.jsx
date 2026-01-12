@@ -95,7 +95,7 @@ const Dashboard = () => {
     const getDefaultProps = (type) => {
         const baseProps = {
             background: 'transparent',
-            padding: '16px',
+            padding: '0px',
             borderRadius: '8px',
         };
 
@@ -162,7 +162,7 @@ const Dashboard = () => {
                 return {
                     ...baseProps,
                     background: 'rgba(255, 255, 255, 0.05)',
-                    padding: '24px',
+                    padding: '0px',
                     borderRadius: '12px',
                     minHeight: '200px'
                 };
@@ -170,7 +170,7 @@ const Dashboard = () => {
                 return {
                     ...baseProps,
                     background: 'rgba(255, 255, 255, 0.03)',
-                    padding: '80px 20px',
+                    padding: '0px',
                     height: 400,
                     borderRadius: '0px'
                 };
