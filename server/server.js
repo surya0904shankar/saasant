@@ -10,7 +10,7 @@ const app = express();
 connectDB();
 
 // Middleware
-const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5173,http://localhost:5174').split(',');
+const allowedOrigins = (process.env.CLIENT_URL || 'http://localhost:5176,http://localhost:5174').split(',');
 console.log('Allowed Origins:', allowedOrigins);
 
 app.use(cors({
