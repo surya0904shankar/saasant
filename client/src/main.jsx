@@ -8,6 +8,18 @@ const domain = import.meta.env.VITE_AUTH0_DOMAIN;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID;
 const audience = import.meta.env.VITE_AUTH0_AUDIENCE;
 
+if (!domain || !clientId) {
+    const errorMsg = `CRITICAL ERROR: Auth0 environment variables are missing! 
+    Domain: ${domain ? '✅' : '❌ MISSING'}
+    ClientID: ${clientId ? '✅' : '❌ MISSING'}
+    Please check your Vercel Project Settings > Environment Variables.`;
+    console.error(errorMsg);
+    // Only alert in production to catch deployment issues
+    if (import.meta.env.PROD) {
+        alert(errorMsg);
+    }
+}
+
 // Handle redirect callback - navigate to dashboard after login
 const onRedirectCallback = (appState) => {
     console.log('Auth0 Redirect Callback triggered', { appState });
