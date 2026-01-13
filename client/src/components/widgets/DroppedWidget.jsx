@@ -167,7 +167,7 @@ const DroppedWidget = ({ widget, onUpdate, onRemove, onMove, onSelect, selectedW
             transition: isResizing ? 'none' : 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
             zIndex: isDragging || isResizing || isSelected ? 1000 : (isSection ? 1 : 10),
             pointerEvents: 'auto',
-            border: isSelected && !previewMode ? '2px solid var(--primary)' : (props?.border || 'none'),
+            border: isSelected && !previewMode ? '2px solid var(--primary)' : (props?.border || (!previewMode ? '1px solid #000000' : 'none')),
         };
 
         const wrap = (content) => (
